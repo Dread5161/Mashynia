@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💖 Наша Хронология</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+    <style>
+        
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)),
+                url('chat1.jpg') center/cover fixed;
+    font-family: 'Caveat', cursive;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.scene {
+    perspective: 1000px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.book {
+    position: relative;
+    width: 400px;
+    height: 600px;
+    transform-style: preserve-3d;
+    transition: transform 1.5s ease-in-out;
+}
+
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff9e6;
+    border-radius: 5px 15px 15px 5px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(255,64,129,0.3);
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+
+.front-page {
+    transform: rotateY(0deg);
+    z-index: 2;
+}
+
+.back-page {
+    transform: rotateY(180deg);
+}
+
+
+.memory-spot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff4081;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 64, 129, 0.5);
+}
+
+.memory-spot:hover {
+    transform: scale(1.5);
+    background: #e91e63;
+    box-shadow: 0 0 20px rgba(233, 30, 99, 0.8);
+}
+
+.memory-spot:hover::after {
+    content: attr(data-date);
+    position: absolute;
+    left: 50%;
+    bottom: -30px;
+    transform: translateX(-50%);
+    background: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+
+.open-letter-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.open-letter-btn:hover {
+    background: #e91e63;
+    transform: translateX(-50%) scale(1.1);
+}
+
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #ff4081;
+    animation: confetti-fall 3s linear infinite;
+}
+
+
+.time-counter {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255,255,255,0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255,64,129,0.3);
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+}
+
+.time-counter div {
+    margin: 10px 0;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@keyframes confetti-fall {
+    0% { transform: translateY(-100vh) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+
+@media (max-width: 414px) {
+    .book {
+        width: 300px;
+        height: 500px;
+    }
+
+    .page {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .memory-spot {
+        width: 15px;
+        height: 15px;
+    }
+
+    .memory-spot:hover::after {
+        font-size: 12px;
+        bottom: -25px;
+    }
+
+    .open-letter-btn {
+        font-size: 18px;
+        padding: 8px 16px;
+    }
+
+    .time-counter {
+        padding: 15px;
+        font-size: 16px;
+    }
+
+    .time-counter div {
+        margin: 8px 0;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .book {
+        width: 500px;
+        height: 700px;
+    }
+
+    .page {
+        padding: 40px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .memory-spot {
+        width: 25px;
+        height: 25px;
+    }
+
+    .memory-spot:hover::after {
+        font-size: 16px;
+        bottom: -35px;
+    }
+
+    .open-letter-btn {
+        font-size: 24px;
+        padding: 12px 24px;
+    }
+
+    .time-counter {
+        padding: 25px;
+        font-size: 24px;
+    }
+
+    .time-counter div {
+        margin: 12px 0;
+    }
+}
+.name:hover, .signature:hover,
+    .name.active, .signature.active {
+        transform: rotate(2deg) scale(1.1);
+        color: #e91e63;
+    }
+
+    .name:hover::after, .name.active::after {
+        content: '🌸';
+        position: absolute;
+        animation: flowerJump 0.5s ease;
+    }
+
+    .signature:hover::after, .signature.active::after {
+        content: '💖';
+        position: absolute;
+        animation: heartJump 0.5s ease;
+    }
+
+    
+    @media (max-width: 390px) {
+        .name, .signature {
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="scene">
+        <div class="book" id="book">
+            
+            <div class="page front-page">
+                <h1 style="font-size: 36px; text-align: center; margin-bottom: 20px;">Наша Хронология</h1>
+                
+                <div class="memory-spot" style="top: 20%; left: 30%;" data-date="Первое сообщение 📩 (28.08.2024)"></div>
+                <div class="memory-spot" style="top: 25%; right: 35%;" data-date="Двух часовой разговор 📞 (02.09.2024)"></div>
+                <div class="memory-spot" style="top: 40%; right: 38%;" data-date="Первый подаренный подарок🎁 (21.01.2025)"></div>
+                <div class="memory-spot" style="top: 55%; left: 33%;" data-date="Совместный просмотр фильма 🍿 (07.02.2025)"></div>
+                <div class="memory-spot" style="top: 70%; right: 40%;" data-date="Первый праздник вместе 🎉 (14.02.2025)"></div>
+                
+                <button class="open-letter-btn" onclick="openLetter()">
+                    Открыть письмо ✉️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="time-counter">
+        <div>Дней: <span id="days">0</span></div>
+        <div>Часов: <span id="hours">0</span></div>
+        <div>Минут: <span id="minutes">0</span></div>
+        <div>Секунд: <span id="seconds">0</span></div>
+    </div>
+
+    
+    <div id="confetti-container"></div>
+
+    <script>
+        
+        function openLetter() {
+            
+            createConfetti();
+            
+            setTimeout(() => {
+                window.location.href = 'letter.html';
+            }, 1000);
+        }
+
+       
+        function createConfetti() {
+            const confettiContainer = document.getElementById('confetti-container');
+            for (let i = 0; i < 0; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                confetti.style.background = `hsl(${Math.random() * 360}, 70%, 60%)`;
+                confettiContainer.appendChild(confetti);
+            }
+        }
+
+       
+        document.addEventListener('mousemove', (e) => {
+            const book = document.getElementById('book');
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 35;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 35;
+            book.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+
+        
+        const startDate = new Date('2024-08-28'); 
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+
+        function updateTime() {
+            const now = new Date();
+            const diff = now - startDate;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            daysEl.textContent = days;
+            hoursEl.textContent = hours;
+            minutesEl.textContent = minutes;
+            secondsEl.textContent = seconds;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+        document.addEventListener('DOMContentLoaded', function() {
+        const isTouchDevice = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+        
+        function handleActivation(e) {
+            e.preventDefault();
+            this.classList.add('active');
+            setTimeout(() => {
+                this.classList.remove('active');
+            }, 500);
+        }
+
+        document.querySelectorAll('.name, .signature').forEach(el => {
+            if(isTouchDevice) {
+                el.addEventListener('touchstart', handleActivation);
+            }
+            el.addEventListener('mouseenter', handleActivation);
+            el.addEventListener('mouseleave', () => {
+                el.classList.remove('active');
+            });
+        });
+    });
+    </script>
+</body>
+</html>
