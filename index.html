@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>С 8 Марта!</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Боковая панель с чатами -->
+    <div class="sidebar">
+      <!-- Чат с поздравлением -->
+      <div class="chat pinned active" data-chat="congrats">
+        <img src="assets/avatar1.png" alt="❤️">
+        <div class="info">
+          <div class="name">🔒 Тайное послание</div>
+          <div class="message">Новое зашифрованное сообщение 🔐</div>
+        </div>
+        <div class="unread">1</div>
+      </div>
+
+      <!-- Остальные чаты -->
+      <div class="chat" data-chat="chat1">
+        <img src="assets/avatar2.png" alt="?">
+        <div class="info">
+          <div class="name">Неизвестный 1</div>
+          <div class="message">Срочно! Это важно! 🔥</div>
+        </div>
+        <div class="unread">3</div>
+      </div>
+
+      <div class="chat" data-chat="chat2">
+        <img src="assets/avatar3.png" alt="?">
+        <div class="info">
+          <div class="name">Неизвестный 2</div>
+          <div class="message">У меня для тебя сюрприз 🎁</div>
+        </div>
+        <div class="unread">2</div>
+      </div>
+
+      <div class="chat" data-chat="chat3">
+        <img src="assets/avatar4.png" alt="?">
+        <div class="info">
+          <div class="name">Неизвестный 3</div>
+          <div class="message">Проверь почту! 📧</div>
+        </div>
+        <div class="unread">5</div>
+      </div>
+
+      <div class="chat" data-chat="chat4">
+        <img src="assets/avatar5.png" alt="?">
+        <div class="info">
+          <div class="name">Неизвестный 4</div>
+          <div class="message">Ты сегодня прекрасна! 💖</div>
+        </div>
+        <div class="unread">1</div>
+      </div>
+
+      <div class="chat" data-chat="chat5">
+        <img src="assets/avatar6.png" alt="?">
+        <div class="info">
+          <div class="name">Неизвестный 5</div>
+          <div class="message">Смотри в окно! 🌸</div>
+        </div>
+        <div class="unread">1</div>
+      </div>
+
+      <div class="chat" data-chat="chat6">
+        <img src="assets/avatar7.png" alt="?">
+        <div class="info">
+          <div class="name">Неизвестный 6</div>
+          <div class="message">Угадай кто это? 🤔</div>
+        </div>
+        <div class="unread">1</div>
+      </div>
+
+      <div class="chat" data-chat="chat7">
+        <img src="assets/avatar8.png" alt="?">
+        <div class="info">
+          <div class="name">Неизвестный 7</div>
+          <div class="message">Ответь как можно скорее! ⏳</div>
+        </div>
+        <div class="unread">1</div>
+      </div>
+    </div>
+
+    <!-- Основное окно с поздравлением -->
+    <div class="main-window active" id="congrats">
+      <div class="message-container fade-in">
+        <div class="message-header">🔒 Шифр 8-03:</div>
+        <p>💐 Дорогая принцесса,</p>
+        <p>В этот особенный день хочу сказать, что ты - самое удивительное создание на свете! Спасибо за твою доброту, улыбки и свет, который ты даришь миру. Пусть все твои мечты сбываются! 🌸</p>
+        <p>С любовью,<br>Тот, кто всегда восхищается тобой ❤️</p>
+      </div>
+      <img src="assets/flowers.png" alt="Цветы" class="fade-in">
+    </div>
+
+    <!-- Окна с сообщениями -->
+    <div class="main-window" id="chat1">
+      <div class="dialog">
+        <div class="message incoming">
+          Привет! У меня для тебя важное сообщение. 🔥
+          <div class="time">10:15</div>
+        </div>
+        <div class="message outgoing">
+          Привет! Что случилось? 🤔
+          <div class="time">10:16</div>
+        </div>
+        <div class="message incoming">
+          Проверь свою почту, там сюрприз! 🎁
+          <div class="time">10:17</div>
+        </div>
+        <img src="assets/gif1.gif" alt="Гифка" class="gif">
+      </div>
+    </div>
+
+    <div class="main-window" id="chat2">
+      <div class="dialog">
+        <div class="message incoming">
+          Привет! У меня для тебя сюрприз. 🎁
+          <div class="time">11:20</div>
+        </div>
+        <div class="message outgoing">
+          Ого! Что за сюрприз? 😲
+          <div class="time">11:21</div>
+        </div>
+        <div class="message incoming">
+          Проверь нижнюю полку холодильника! 🧊
+          <div class="time">11:22</div>
+        </div>
+        <img src="assets/gif2.gif" alt="Гифка" class="gif">
+      </div>
+    </div>
+
+    <div class="main-window" id="chat3">
+      <div class="dialog">
+        <div class="message incoming">
+          Привет! Проверь почту, там что-то важное. 📧
+          <div class="time">12:30</div>
+        </div>
+        <div class="message outgoing">
+          Хорошо, проверю. Спасибо! 👍
+          <div class="time">12:31</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-window" id="chat4">
+      <div class="dialog">
+        <div class="message incoming">
+          Привет! Ты сегодня выглядишь потрясающе! 💖
+          <div class="time">13:45</div>
+        </div>
+        <div class="message outgoing">
+          Спасибо! Ты меня радуешь! 😊
+          <div class="time">13:46</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-window" id="chat5">
+      <div class="dialog">
+        <div class="message incoming">
+          Привет! Посмотри в окно, там что-то интересное. 🌸
+          <div class="time">14:50</div>
+        </div>
+        <div class="message outgoing">
+          Ого! Это так красиво! 😍
+          <div class="time">14:51</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-window" id="chat6">
+      <div class="dialog">
+        <div class="message incoming">
+          Привет! Угадай, кто это? 🤔
+          <div class="time">15:55</div>
+        </div>
+        <div class="message outgoing">
+          Хм... Не знаю. Кто же это? 🧐
+          <div class="time">15:56</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-window" id="chat7">
+      <div class="dialog">
+        <div class="message incoming">
+          Привет! Ответь как можно скорее! ⏳
+          <div class="time">16:00</div>
+        </div>
+        <div class="message outgoing">
+          Хорошо, я здесь. Что случилось? 🤨
+          <div class="time">16:01</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Музыкальный плеер -->
+    <div class="music-player">
+      <div class="vinyl" id="vinyl">
+        <img src="assets/vinyl.png" alt="Винил">
+      </div>
+      <div class="controls">
+        <button id="prev">⏮️</button>
+        <button id="play">▶️</button>
+        <button id="next">⏭️</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
