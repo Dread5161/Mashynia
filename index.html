@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>С 8 Марта!</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Боковая панель с чатами -->
+    <div class="sidebar">
+      <!-- Чат с поздравлением -->
+      <div class="chat pinned active" data-chat="congrats">
+        <img src="assets/avatar1.png" alt="❤️" class="chat-icon">
+        <div class="info">
+          <div class="name">🔒 Тайное послание</div>
+          <div class="message">Новое зашифрованное сообщение 🔐</div>
+        </div>
+        <div class="unread">1</div>
+      </div>
+
+      <!-- Чат с комплиментами от незнакомцев -->
+      <div class="chat" data-chat="chat1">
+        <img src="assets/avatar2.png" alt="?" class="chat-icon">
+        <div class="info">
+          <div class="name">Незнакомец 1</div>
+          <div class="message">Ты сегодня прекрасна! 💖</div>
+        </div>
+        <div class="unread">1</div>
+      </div>
+
+      <div class="chat" data-chat="chat2">
+        <img src="assets/avatar3.png" alt="?" class="chat-icon">
+        <div class="info">
+          <div class="name">Незнакомец 2</div>
+          <div class="message">Твоя улыбка очаровательна! 😊</div>
+        </div>
+        <div class="unread">1</div>
+      </div>
+
+      <div class="chat" data-chat="chat3">
+        <img src="assets/avatar4.png" alt="?" class="chat-icon">
+        <div class="info">
+          <div class="name">Незнакомец 3</div>
+          <div class="message">Ты - само совершенство! 💖</div>
+        </div>
+        <div class="unread">1</div>
+      </div>
+
+      <div class="chat" data-chat="chat4">
+        <img src="assets/avatar5.png" alt="?" class="chat-icon">
+        <div class="info">
+          <div class="name">Незнакомец 4</div>
+          <div class="message">Твоя энергия заряжает позитивом! ⚡</div>
+        </div>
+        <div class="unread">1</div>
+      </div>
+
+      <div class="chat" data-chat="chat5">
+        <img src="assets/avatar6.png" alt="?" class="chat-icon">
+        <div class="info">
+          <div class="name">Незнакомец 5</div>
+          <div class="message">Ты выглядишь потрясающе! 🌸</div>
+        </div>
+        <div class="unread">1</div>
+      </div>
+
+      <div class="chat" data-chat="chat6">
+        <img src="assets/avatar7.png" alt="?" class="chat-icon">
+        <div class="info">
+          <div class="name">Незнакомец 6</div>
+          <div class="message">Твоя доброта согревает сердца! ❤️</div>
+        </div>
+        <div class="unread">1</div>
+      </div>
+
+      <div class="chat" data-chat="chat7">
+        <img src="assets/avatar8.png" alt="?" class="chat-icon">
+        <div class="info">
+          <div class="name">Незнакомец 7</div>
+          <div class="message">Ты - образец элегантности! 💃</div>
+        </div>
+        <div class="unread">1</div>
+      </div>
+    </div>
+
+    <!-- Основное окно с поздравлением -->
+    <div class="main-window active" id="congrats">
+      <div class="message-container fade-in">
+        <div class="message-header">🔒 Шифр 8-03:</div>
+        <p>💐 Дорогая принцесса,</p>
+        <p>В этот особенный день хочу сказать, что ты - самое удивительное создание на свете! Спасибо за твою доброту, улыбки и свет, который ты даришь миру. Пусть все твои мечты сбываются! 🌸</p>
+        <p>С любовью,<br>Тот, кто всегда восхищается тобой ❤️</p>
+      </div>
+      <img src="assets/flowers.png" alt="Цветы" class="fade-in">
+    </div>
+
+    <!-- Окна с сообщениями -->
+    <div class="main-window" id="chat1">
+      <div class="dialog">
+        <div class="message incoming">
+          Ты сегодня прекрасна! 💖
+          <div class="time">10:15</div>
+        </div>
+      </div>
+      <div class="input-container">
+        <input type="text" class="message-input" placeholder="Напишите сообщение...">
+        <button class="send-button">➤</button>
+      </div>
+    </div>
+
+    <div class="main-window" id="chat2">
+      <div class="dialog">
+        <div class="message incoming">
+          Твоя улыбка очаровательна! 😊
+          <div class="time">11:20</div>
+        </div>
+      </div>
+      <div class="input-container">
+        <input type="text" class="message-input" placeholder="Напишите сообщение...">
+        <button class="send-button">➤</button>
+      </div>
+    </div>
+
+    <div class="main-window" id="chat3">
+      <div class="dialog">
+        <div class="message incoming">
+          Ты - само совершенство! 💖
+          <div class="time">12:30</div>
+        </div>
+      </div>
+      <div class="input-container">
+        <input type="text" class="message-input" placeholder="Напишите сообщение...">
+        <button class="send-button">➤</button>
+      </div>
+    </div>
+
+    <div class="main-window" id="chat4">
+      <div class="dialog">
+        <div class="message incoming">
+          Твоя энергия заряжает позитивом! ⚡
+          <div class="time">13:45</div>
+        </div>
+      </div>
+      <div class="input-container">
+        <input type="text" class="message-input" placeholder="Напишите сообщение...">
+        <button class="send-button">➤</button>
+      </div>
+    </div>
+
+    <div class="main-window" id="chat5">
+      <div class="dialog">
+        <div class="message incoming">
+          Ты выглядишь потрясающе! 🌸
+          <div class="time">14:50</div>
+        </div>
+      </div>
+      <div class="input-container">
+        <input type="text" class="message-input" placeholder="Напишите сообщение...">
+        <button class="send-button">➤</button>
+      </div>
+    </div>
+
+    <div class="main-window" id="chat6">
+      <div class="dialog">
+        <div class="message incoming">
+          Твоя доброта согревает сердца! ❤️
+          <div class="time">15:55</div>
+        </div>
+      </div>
+      <div class="input-container">
+        <input type="text" class="message-input" placeholder="Напишите сообщение...">
+        <button class="send-button">➤</button>
+      </div>
+    </div>
+
+    <div class="main-window" id="chat7">
+      <div class="dialog">
+        <div class="message incoming">
+          Ты - образец элегантности! 💃
+          <div class="time">16:00</div>
+        </div>
+      </div>
+      <div class="input-container">
+        <input type="text" class="message-input" placeholder="Напишите сообщение...">
+        <button class="send-button">➤</button>
+      </div>
+    </div>
+
+    <!-- Музыкальный плеер -->
+    <div class="music-player">
+      <div class="vinyl" id="vinyl">
+        <img src="assets/vinyl1.png" alt="Винил" id="vinyl-img">
+      </div>
+      <div class="controls">
+        <button id="prev">⏮️</button>
+        <button id="play">▶️</button>
+        <button id="next">⏭️</button>
+      </div>
+    </div>
+
+    <!-- Кнопка смены темы -->
+    <button id="theme-toggle" class="theme-toggle">🌙</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
