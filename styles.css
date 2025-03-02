@@ -335,7 +335,259 @@ body.dark-theme .theme-toggle {
   background: rgba(0, 0, 0, 0.9);
 }
 
-/* Строка ввода сообщения */
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+  .toggle-sidebar {
+    display: block;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 250px;
+    height: 100vh;
+    transition: left 0.3s ease;
+    z-index: 999;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .container {
+    margin-left: 0;
+  }
+
+  .main-window {
+    padding: 15px;
+  }
+
+  .music-player {
+    bottom: 10px;
+    right: 10px;
+    padding: 10px;
+  }
+
+  .vinyl {
+    width: 40px;
+    height: 40px;
+  }
+
+  .controls button {
+    font-size: 20px;
+  }
+
+  .dialog .message {
+    max-width: 90%;
+  }
+}
+.input-container {
+  display: flex;
+  gap: 10px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  position: sticky;
+  bottom: 0;
+  backdrop-filter: blur(10px); /* Размытие фона */
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-theme .input-container {
+  background: rgba(0, 0, 0, 0.8);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Стили для поля ввода */
+.message-input {
+  flex: 1;
+  padding: 12px 20px;
+  border: 2px solid #e91e63;
+  border-radius: 25px;
+  outline: none;
+  font-size: 16px;
+  color: #333;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme .message-input {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+  border-color: #ff6b6b;
+}
+
+.message-input::placeholder {
+  color: #999;
+}
+
+body.dark-theme .message-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.message-input:focus {
+  border-color: #ff6b6b;
+  box-shadow: 0 0 10px rgba(233, 30, 99, 0.5);
+}
+
+/* Стили для кнопки отправки */
+.send-button {
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #e91e63, #ff6b6b);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.send-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(233, 30, 99, 0.5);
+}
+
+body.dark-theme .send-button {
+  background: linear-gradient(135deg, #ff6b6b, #e91e63);
+}
+
+/* Анимация при нажатии на кнопку */
+.send-button:active {
+  transform: scale(0.95);
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+  .input-container {
+    padding: 10px;
+    border-radius: 15px 15px 0 0;
+  }
+
+  .message-input {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  .send-button {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+}
+.search-container {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  margin-bottom: 10px;
+  backdrop-filter: blur(10px);
+  transition: background 0.3s ease;
+}
+
+body.dark-theme .search-container {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 2px solid rgba(233, 30, 99, 0.3);
+  border-radius: 25px;
+  outline: none;
+  font-size: 14px;
+  color: #333;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+body.dark-theme .search-input {
+  color: #e0e0e0;
+  border-color: rgba(255, 107, 107, 0.3);
+}
+
+.search-input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+body.dark-theme .search-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.search-input:focus {
+  border-color: rgba(233, 30, 99, 0.7);
+  box-shadow: 0 0 10px rgba(233, 30, 99, 0.3);
+}
+/* Стили для кнопки сворачивания меню */
+.toggle-sidebar {
+  display: none; /* По умолчанию скрыта */
+  background: #e91e63;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.toggle-sidebar:hover {
+  transform: scale(1.1);
+}
+
+/* Стили для строки поиска */
+.search-container {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  margin-bottom: 10px;
+  backdrop-filter: blur(10px);
+  transition: background 0.3s ease;
+}
+
+body.dark-theme .search-container {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 2px solid rgba(233, 30, 99, 0.3);
+  border-radius: 25px;
+  outline: none;
+  font-size: 14px;
+  color: #333;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+body.dark-theme .search-input {
+  color: #e0e0e0;
+  border-color: rgba(255, 107, 107, 0.3);
+}
+
+.search-input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+body.dark-theme .search-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.search-input:focus {
+  border-color: rgba(233, 30, 99, 0.7);
+  box-shadow: 0 0 10px rgba(233, 30, 99, 0.3);
+}
+
+/* Стили для строки ввода сообщения */
 .input-container {
   position: fixed;
   bottom: 0;
@@ -348,7 +600,7 @@ body.dark-theme .theme-toggle {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   z-index: 1000;
-  justify-content: center;
+  justify-content: center; /* Центрируем строку ввода */
 }
 
 body.dark-theme .input-container {
@@ -357,7 +609,7 @@ body.dark-theme .input-container {
 
 .message-input {
   flex: 1;
-  max-width: 600px;
+  max-width: 600px; /* Ограничиваем ширину строки ввода */
   padding: 10px 15px;
   border: 2px solid #e91e63;
   border-radius: 25px;
@@ -409,67 +661,30 @@ body.dark-theme .send-button {
   background: linear-gradient(135deg, #ff6b6b, #e91e63);
 }
 
-/* Строка поиска */
-.search-container {
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 15px;
-  margin-bottom: 10px;
-  backdrop-filter: blur(10px);
-  transition: background 0.3s ease;
-}
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+  .toggle-sidebar {
+    display: block; /* Показываем кнопку на мобильных устройствах */
+  }
 
-body.dark-theme .search-container {
-  background: rgba(0, 0, 0, 0.2);
-}
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 250px;
+    height: 100vh;
+    transition: left 0.3s ease;
+    z-index: 999;
+  }
 
-.search-input {
-  width: 100%;
-  padding: 10px 15px;
-  border: 2px solid rgba(233, 30, 99, 0.3);
-  border-radius: 25px;
-  outline: none;
-  font-size: 14px;
-  color: #333;
-  background: transparent;
-  transition: all 0.3s ease;
-}
+  .sidebar.active {
+    left: 0;
+  }
 
-body.dark-theme .search-input {
-  color: #e0e0e0;
-  border-color: rgba(255, 107, 107, 0.3);
-}
-
-.search-input::placeholder {
-  color: rgba(0, 0, 0, 0.5);
-}
-
-body.dark-theme .search-input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.search-input:focus {
-  border-color: rgba(233, 30, 99, 0.7);
-  box-shadow: 0 0 10px rgba(233, 30, 99, 0.3);
-}
-
-/* Адаптация для iPhone 13 */
-@media (max-width: 428px) {
   .container {
     flex-direction: column;
     max-width: 100%;
     border-radius: 0;
-  }
-
-  .sidebar {
-    width: 100%;
-    height: 200px;
-    border-right: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .main-window {
-    padding: 10px;
   }
 
   .input-container {
