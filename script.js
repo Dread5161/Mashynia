@@ -147,9 +147,49 @@ document.querySelectorAll('.chat').forEach(chat => {
 });
 
 // Сворачивание/разворачивание меню чатов
+// Логика для сворачивания/разворачивания меню чатов
 const toggleSidebar = document.getElementById('toggle-sidebar');
 const sidebar = document.querySelector('.sidebar');
 
 toggleSidebar.addEventListener('click', () => {
   sidebar.classList.toggle('active');
 });
+
+// Логика для отправки сообщений
+document.querySelectorAll('.send-button').forEach(button => {
+  button.addEventListener('click', sendMessage);
+});
+
+document.querySelectorAll('.message-input').forEach(input => {
+  input.addEventListener('keypress', e => {
+    if (e.key === 'Enter') sendMessage.call(e.target.nextElementSibling);
+  });
+});
+
+function sendMessage() {
+  const input = this.previousElementSibling;
+  const dialog = this.closest('.main-window').querySelector('.dialog');
+  
+  if (input.value.trim()) {
+    addMessage(input.value, 'outgoing', dialog);
+    setTimeout(() => addCompliment(dialog), 500);
+    input.value = '';
+    dialog.scrollTop = dialog.scrollHeight;
+  }
+}
+
+function addMessage(text, type, dialog) {
+  const message = document.createElement('div');
+  message.classList.add('message', type);
+  message.innerHTML = `
+    ${text}
+    <div class="time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+  `;
+  dialog.appendChild(message);
+}
+
+function addCompliment(dialog) {
+  const compliment = compliments[Math.floor(Math.random() * compliments.length)];
+  addMessage(compliment, 'incoming', dialog);
+  dialog.scrollTop = dialog.scrollHeight;
+}
